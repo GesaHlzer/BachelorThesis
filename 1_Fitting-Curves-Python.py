@@ -39,7 +39,7 @@ FRAP measurement standards in order to use this program as it is:
     - Acquisition interval 0.3 s 
     - Time unit in s (not ms)!
     - 3 cycles before bleaching
-    - R1 Bbleach acquisition, R2 bleachcontrol acquisition
+    - R1 bleach acquisition, R2 bleachcontrol acquisition
                   ____________________
 
 """
@@ -64,7 +64,7 @@ x, f = 0, 1
 __________________________________THIS BLOCK NEEDS TO BE CUSTOMISED!__________________________________________________________
 ______________________________________________________________________________________________________________________________"""
 
-TimeAxisIn_ms = False # If the aquisition intervall was mesured with a 300 ms intervall instead of 0.3 s, set to True
+TimeAxisIn_ms = False # If the acquisition interval was measured with a 300 ms interval instead of 0.3 s, set to True
 
 Path = 'C:/Users/alleh/OneDrive - Technische Universität Ilmenau/A_UNI/BeachlorArbeit/Python_FRAP_Auswertung/'
 Folder = 'UsedData/'
@@ -100,7 +100,7 @@ CombinedPlot = True       # Show plot of all three fits in one figure
 SaveCombindedPlot = True  
 
 """ Bleachcontrol """
-Bleachcontrol = True        # if not mesured (as R2): out comment this line (#)
+Bleachcontrol = True        # if not measured (as R2):  comment this line out(#)
 IncludeBleachcontrol = True # if it shall not be included: out comment this line (#)
 
 x1 = 78     # amount of data points to exclude in the beginning; x1 > 0
@@ -184,7 +184,7 @@ if Bleachcontrol == True:
     
     
     
-    """ --- Plot recovery data, bleachcontrol data and bleachimplement in a graph ---"""
+    """ --- Plot recovery data, bleach-control data and bleachimplement in a graph ---"""
     
     plt.figure(figsize=(10, 5))
     
@@ -193,7 +193,7 @@ if Bleachcontrol == True:
     plt.scatter(ndata[:, 0], ndata[:, 1], marker='.',
                 label='Measurment', color='black') # Bleachimplement
     plt.scatter(data[:, 0], data[:, 2], marker='.',
-                label='Measurment', color='orange') # Bleachcontrol
+                label='Measurment', color='orange') # Bleach-control
     plt.plot(data[x1:-x2, 0], linear_bleach(data[x1:-x2, 0], *popt_lin_bl)) # Linear fit of bleachcontrol
     
     plt.xlabel('Time in s')
